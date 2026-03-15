@@ -1,11 +1,719 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>РосТеплоЦентр</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>РОСТЕПЛОЦЕНТР — монтаж внутренних инженерных сетей и поставка оборудования</title>
+  <meta name="description" content="РОСТЕПЛОЦЕНТР — монтаж внутренних инженерных сетей и поставка оборудования: газовые котлы, радиаторы отопления, ППР трубы, канализация, двери, металл для дымоотводов." />
+  <style>
+    :root {
+      --bg: #0b1220;
+      --bg-soft: #111a2b;
+      --card: rgba(255, 255, 255, 0.06);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text: #f5f7fb;
+      --muted: #b7c0d1;
+      --accent: #f59e0b;
+      --accent-2: #f97316;
+      --line: rgba(255, 255, 255, 0.08);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius: 22px;
+      --maxw: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(245, 158, 11, 0.14), transparent 28%),
+        radial-gradient(circle at left center, rgba(249, 115, 22, 0.10), transparent 22%),
+        linear-gradient(180deg, #09101c 0%, #0b1220 100%);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--maxw), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(8, 13, 24, 0.65);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .logo__title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .logo__subtitle {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .nav {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav a {
+      color: var(--muted);
+      font-size: 0.96rem;
+      transition: 0.2s ease;
+    }
+
+    .nav a:hover {
+      color: var(--text);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn--primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #111827;
+      box-shadow: 0 12px 35px rgba(249, 115, 22, 0.28);
+    }
+
+    .btn--primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.04);
+    }
+
+    .btn--ghost {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .btn--ghost:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero {
+      padding: 82px 0 52px;
+    }
+
+    .hero__grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 38px;
+      padding: 0 16px;
+      border-radius: 999px;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.18);
+      color: #ffd89b;
+      font-size: 0.93rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2.3rem, 5vw, 4.6rem);
+      line-height: 1.03;
+      letter-spacing: -0.03em;
+    }
+
+    .hero__accent {
+      color: #ffbe5c;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .hero__facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .hero__facts li {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #d7ddeb;
+      font-size: 0.94rem;
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 26px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -10% -25% auto;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.32), transparent 68%);
+      pointer-events: none;
+    }
+
+    .hero-card__title {
+      font-size: 1rem;
+      color: #f8d59c;
+      margin-bottom: 16px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-card__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .mini-card {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .mini-card span {
+      display: block;
+      color: #cbd5e1;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+
+    .mini-card strong {
+      display: block;
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+
+    section {
+      padding: 44px 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 26px;
+    }
+
+    .kicker {
+      color: #ffca7a;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .services,
+    .advantages,
+    .steps,
+    .contacts {
+      display: grid;
+      gap: 18px;
+    }
+
+    .services {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .advantages {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .steps {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .contacts {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .service__num,
+    .step__num {
+      color: #ffca7a;
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.22rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .advantage__icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 14px;
+      font-size: 1.3rem;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.16);
+    }
+
+    .cta {
+      padding: 60px 0;
+    }
+
+    .cta__box {
+      padding: 34px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.16), rgba(249, 115, 22, 0.10), rgba(255,255,255,0.05));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .cta__box p {
+      max-width: 760px;
+      margin: 0 auto 22px;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .contact-item {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .contact-item__label {
+      color: #ffca7a;
+      font-size: 0.86rem;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    .contact-item__value {
+      color: var(--text);
+      font-size: 1rem;
+      word-break: break-word;
+    }
+
+    .footer {
+      padding: 26px 0 36px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 1024px) {
+      .hero__grid,
+      .services,
+      .advantages,
+      .steps,
+      .contacts {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card__grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .site-header__inner {
+        min-height: 68px;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 56px;
+      }
+
+      .lead {
+        font-size: 1rem;
+      }
+
+      .hero-card__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero__actions {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>Добро пожаловать в РосТеплоЦентр!</h1>
-    <p>Сайт успешно запущен через GitHub Pages.</p>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <div class="logo">
+        <div class="logo__title">РОСТЕПЛОЦЕНТР</div>
+        <div class="logo__subtitle">Инженерные сети • Поставка оборудования</div>
+      </div>
+
+      <nav class="nav">
+        <a href="#about">О компании</a>
+        <a href="#services">Направления</a>
+        <a href="#advantages">Преимущества</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__grid">
+        <div>
+          <div class="badge">Монтаж внутренних инженерных сетей • Комплектация объектов</div>
+          <h1>
+            Поставка оборудования и
+            <span class="hero__accent">монтаж инженерных систем</span>
+            для частных и коммерческих объектов
+          </h1>
+          <p class="lead">
+            РОСТЕПЛОЦЕНТР занимается поставкой инженерного оборудования и материалов,
+            а также монтажом внутренних инженерных сетей. Работаем с объектами строительства,
+            подрядчиками, монтажными организациями и частными заказчиками.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#contacts">Связаться с нами</a>
+            <a class="btn btn--ghost" href="#services">Смотреть направления</a>
+          </div>
+
+          <ul class="hero__facts">
+            <li>Газовые котлы и отопление</li>
+            <li>ППР трубы и канализация</li>
+            <li>Двери и комплектующие</li>
+            <li>Металл для дымоотводов</li>
+          </ul>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card__title">Основные направления</div>
+          <div class="hero-card__grid">
+            <div class="mini-card">
+              <span>01</span>
+              <strong>Газовые котлы</strong>
+            </div>
+            <div class="mini-card">
+              <span>02</span>
+              <strong>Радиаторы отопления</strong>
+            </div>
+            <div class="mini-card">
+              <span>03</span>
+              <strong>ППР трубы и фитинги</strong>
+            </div>
+            <div class="mini-card">
+              <span>04</span>
+              <strong>Канализация</strong>
+            </div>
+            <div class="mini-card">
+              <span>05</span>
+              <strong>Двери для объектов</strong>
+            </div>
+            <div class="mini-card">
+              <span>06</span>
+              <strong>Металл для дымоотводов</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">О компании</div>
+          <h2>Надёжный партнёр по инженерным решениям</h2>
+          <p>
+            Мы помогаем закрывать инженерные задачи комплексно: от подбора оборудования
+            и поставки материалов до комплектации объекта и выполнения монтажных работ.
+            Наша задача — дать заказчику понятный, рабочий и организованный результат.
+          </p>
+        </div>
+
+        <div class="advantages">
+          <div class="card">
+            <div class="advantage__icon">⚙️</div>
+            <h3>Комплексный подход</h3>
+            <p>
+              Поставка оборудования и материалов в одном контуре с инженерной логикой объекта.
+            </p>
+          </div>
+          <div class="card">
+            <div class="advantage__icon">🏗️</div>
+            <h3>Работа с объектами</h3>
+            <p>
+              Подходим не как витрина, а как практический поставщик и исполнитель для стройки и монтажа.
+            </p>
+          </div>
+          <div class="card">
+            <div class="advantage__icon">🤝</div>
+            <h3>Понятное взаимодействие</h3>
+            <p>
+              Обсуждаем задачу предметно: что нужно, в какие сроки, в каком составе и под какой бюджет.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Направления</div>
+          <h2>Что мы поставляем</h2>
+          <p>
+            Основные товарные группы и материалы, с которыми работает РОСТЕПЛОЦЕНТР.
+          </p>
+        </div>
+
+        <div class="services">
+          <div class="card">
+            <div class="service__num">01</div>
+            <h3>Газовые котлы</h3>
+            <p>
+              Подбор и поставка газовых котлов для отопительных систем частных и коммерческих объектов.
+            </p>
+          </div>
+          <div class="card">
+            <div class="service__num">02</div>
+            <h3>Радиаторы отопления</h3>
+            <p>
+              Оборудование для систем отопления, комплектация по проекту или по задаче объекта.
+            </p>
+          </div>
+          <div class="card">
+            <div class="service__num">03</div>
+            <h3>ППР трубы</h3>
+            <p>
+              Трубы и фитинги для внутренних инженерных систем водоснабжения и отопления.
+            </p>
+          </div>
+          <div class="card">
+            <div class="service__num">04</div>
+            <h3>Канализация</h3>
+            <p>
+              Материалы и элементы для систем внутренней и наружной канализации.
+            </p>
+          </div>
+          <div class="card">
+            <div class="service__num">05</div>
+            <h3>Двери</h3>
+            <p>
+              Поставка дверей для технических, хозяйственных и строительных объектов.
+            </p>
+          </div>
+          <div class="card">
+            <div class="service__num">06</div>
+            <h3>Металл для дымоотводов</h3>
+            <p>
+              Комплектующие и металлические элементы для систем дымоудаления и дымоотводов.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Как мы работаем</div>
+          <h2>Простой и понятный процесс</h2>
+          <p>
+            Без лишней бюрократии и путаницы: от задачи заказчика к поставке и реализации.
+          </p>
+        </div>
+
+        <div class="steps">
+          <div class="card">
+            <div class="step__num">Шаг 1</div>
+            <h3>Получаем задачу</h3>
+            <p>Уточняем объект, объём, сроки, формат поставки и особенности комплектации.</p>
+          </div>
+          <div class="card">
+            <div class="step__num">Шаг 2</div>
+            <h3>Формируем решение</h3>
+            <p>Подбираем оборудование, материалы и оптимальную схему поставки под задачу.</p>
+          </div>
+          <div class="card">
+            <div class="step__num">Шаг 3</div>
+            <h3>Комплектуем объект</h3>
+            <p>Организуем поставку и закрываем потребность по инженерным материалам и позициям.</p>
+          </div>
+          <div class="card">
+            <div class="step__num">Шаг 4</div>
+            <h3>Доводим до результата</h3>
+            <p>При необходимости подключаем монтаж и выстраиваем работу под фактический ход объекта.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <div class="cta__box">
+          <h2>Нужна поставка оборудования или комплектация объекта?</h2>
+          <p>
+            РОСТЕПЛОЦЕНТР — это инженерный подход, понятная коммуникация и практическая работа
+            с внутренними инженерными сетями и поставкой оборудования.
+          </p>
+          <a class="btn btn--primary" href="#contacts">Оставить заявку</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts">
+      <div class="container contacts">
+        <div class="card">
+          <div class="section-head" style="margin-bottom: 0;">
+            <div class="kicker">Контакты</div>
+            <h2>Связаться с нами</h2>
+            <p>
+              Здесь можно разместить рабочие контакты компании. Пока я оставил аккуратные заглушки.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="contact-list">
+            <div class="contact-item">
+              <div class="contact-item__label">Телефон</div>
+              <div class="contact-item__value">+7 (___) ___-__-__</div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item__label">E-mail</div>
+              <div class="contact-item__value">info@rosteplocentr.ru</div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item__label">Город</div>
+              <div class="contact-item__value">Калининград</div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item__label">Направление</div>
+              <div class="contact-item__value">Монтаж внутренних инженерных сетей и поставка оборудования</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © 2026 РОСТЕПЛОЦЕНТР. Монтаж внутренних инженерных сетей и поставка оборудования.
+    </div>
+  </footer>
+
 </body>
 </html>
