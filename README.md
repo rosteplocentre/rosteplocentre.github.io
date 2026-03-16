@@ -13,15 +13,7 @@ ROSTEPLOCENTR provides engineering equipment supply and installation of internal
 - Technical and construction doors
 - Metal components for flue and chimney systems
 
-The company works with private clients, contractors and construction projects.
-
----
-
-### Founder
-
-**Dmitry Vasilyevich Klimov**
-
-Entrepreneur and developer of engineering and digital systems for logistics, equipment supply and service automation.
+The company works with contractors and construction projects.
 
 ---
 
