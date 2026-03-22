@@ -17,43 +17,24 @@
   <meta property="og:image" content="apple-touch-icon.png">
 
 <style>
-  .secure-contact {
-    padding: 10px 0 44px;
-  }
-  
-  .secure-contact__card {
+  .contacts-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 28px;
-    align-items: center;
-    padding: 26px;
-    border-radius: 28px;
-    background: linear-gradient(
-      135deg,
-      rgba(14, 30, 48, 0.96),
-      rgba(8, 18, 32, 0.96)
-    );
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
-    overflow: hidden;
+    gap: 18px;
+    align-items: start;
   }
   
-  .secure-contact__media img {
+  .keet-card__image {
     display: block;
     width: 100%;
     height: auto;
-    border-radius: 22px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    margin: 14px 0 18px;
+    border: 1px solid rgba(255,255,255,0.08);
   }
   
-  .secure-contact__content h2 {
-    margin-top: 0;
-    margin-bottom: 14px;
-  }
-  
-  .secure-contact__content p {
+  .keet-card p {
     color: var(--muted);
-    margin: 0 0 14px;
   }
   
   .secure-contact__list {
@@ -72,11 +53,11 @@
     flex-wrap: wrap;
   }
   
-  @media (max-width: 960px) {
-    .secure-contact__card {
+  @media (max-width: 1024px) {
+    .contacts-grid {
       grid-template-columns: 1fr;
     }
-  }  
+  } 
 </style>
   
   <style>
@@ -746,44 +727,57 @@
       </div>
     </section>
 
-    <section id="contacts">
-      <div class="container contacts">
-        <div class="card">
-          <div class="section-head" style="margin-bottom: 0;">
-            <div class="kicker">Контакты</div>
-            <h2>Связаться с нами</h2>
-            <p>
-              Наши контакты в г. Калининграде.
-            </p>
+<section id="contacts">
+  <div class="container">
+    <div class="section-head" style="margin-bottom: 26px;">
+      <div class="kicker">Контакты</div>
+      <h2>Связаться с нами</h2>
+      <p>
+        Наши контакты в г. Калининграде, а также альтернативный защищённый канал связи
+        для передачи больших файлов и приватной переписки.
+      </p>
+    </div>
+
+    <div class="contacts-grid">
+      <div class="card">
+        <h3>Основные контакты</h3>
+        <div class="contact-list">
+          <div class="contact-item">
+            <div class="contact-item__label">Телефон</div>
+            <div class="contact-item__value">+7 (900) 564-38-83</div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item__label">E-mail</div>
+            <div class="contact-item__value">2infodc39@gmail.com</div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item__label">Город</div>
+            <div class="contact-item__value">Калининград</div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item__label">Направление</div>
+            <div class="contact-item__value">
+              Монтаж внутренних инженерных сетей и поставка оборудования
+            </div>
           </div>
         </div>
-
-
-<section class="secure-contact">
-  <div class="container">
-    <div class="secure-contact__card">
-      <div class="secure-contact__media">
-        <img src="images/keet-banner.jpg" alt="Keet Messenger" />
       </div>
 
-      <div class="secure-contact__content">
+      <div class="card keet-card">
         <div class="kicker">Безопасная связь</div>
-        <h2>Keet — защищённый мессенджер без серверов</h2>
+        <h3>Keet — защищённый P2P-мессенджер</h3>
+
+        <img src="images/keet-banner.jpg" alt="Keet Messenger" class="keet-card__image" />
 
         <p>
-          Для тех, кому важны приватность, независимость от внешних платформ и передача
-          больших файлов без лишних ограничений, рекомендуем использовать <strong>Keet</strong>.
-        </p>
-
-        <p>
-          Это P2P-мессенджер, где сообщения и звонки идут напрямую между пользователями,
-          без традиционного облачного хранения. Подходит для конфиденциальной переписки,
-          рабочих вопросов и обмена крупными файлами.
+          Для приватной переписки, рабочих обсуждений и передачи крупных файлов
+          можно использовать <strong>Keet</strong> — защищённый мессенджер с прямым
+          соединением между пользователями.
         </p>
 
         <ul class="secure-contact__list">
-          <li>прямая P2P-архитектура</li>
           <li>без регистрации по номеру телефона</li>
+          <li>прямое P2P-соединение</li>
           <li>передача больших файлов без сжатия</li>
           <li>независимый канал связи</li>
         </ul>
@@ -797,30 +791,6 @@
     </div>
   </div>
 </section>
-        
-        <div class="card">
-          <div class="contact-list">
-            <div class="contact-item">
-              <div class="contact-item__label">Телефон</div>
-              <div class="contact-item__value">+7 (900) 564-38-83</div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item__label">E-mail</div>
-              <div class="contact-item__value">2infodc39@gmail.com</div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item__label">Город</div>
-              <div class="contact-item__value">Калининград</div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item__label">Направление</div>
-              <div class="contact-item__value">Монтаж внутренних инженерных сетей и поставка оборудования</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
 
   <footer class="footer">
     <div class="container">
