@@ -16,49 +16,91 @@
   <meta property="og:description" content="Газовые котлы, радиаторы отопления, ППР трубы, канализация, двери, металл для дымоотводов.">
   <meta property="og:image" content="apple-touch-icon.png">
 
-<style>
-  .contacts-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-    align-items: start;
-  }
-  
-  .keet-card__image {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 18px;
-    margin: 14px 0 18px;
-    border: 1px solid rgba(255,255,255,0.08);
-  }
-  
-  .keet-card p {
-    color: var(--muted);
-  }
-  
-  .secure-contact__list {
-    margin: 0 0 22px;
-    padding-left: 18px;
-    color: #dbe4f0;
-  }
-  
-  .secure-contact__list li {
-    margin-bottom: 8px;
-  }
-  
-  .secure-contact__actions {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  
-  @media (max-width: 1024px) {
+  <style>
     .contacts-grid {
-      grid-template-columns: 1fr;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: start;
     }
-  } 
-</style>
+    
+    .keet-card__image {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 18px;
+      margin: 14px 0 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    
+    .keet-card p {
+      color: var(--muted);
+    }
+    
+    .secure-contact__list {
+      margin: 0 0 22px;
+      padding-left: 18px;
+      color: #dbe4f0;
+    }
+    
+    .secure-contact__list li {
+      margin-bottom: 8px;
+    }
+    
+    .secure-contact__actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    
+    @media (max-width: 1024px) {
+      .contacts-grid {
+        grid-template-columns: 1fr;
+      }
+    } 
+  </style>
+
+  <style>  
+    .keet-features details {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+    
+    .keet-features details:hover {
+      background: rgba(255,255,255,0.06);
+    }
+    
+    .keet-features summary {
+      font-weight: 600;
+      color: #fff;
+      list-style: none;
+    }
+    
+    .keet-features summary::-webkit-details-marker {
+      display: none;
+    }
+    
+    .keet-features summary::after {
+      content: "＋";
+      float: right;
+      color: #ffca7a;
+    }
+    
+    .keet-features details[open] summary::after {
+      content: "−";
+    }
+    
+    .keet-features p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+  </style>
   
   <style>
     :root {
@@ -763,17 +805,74 @@
         <img src="images/keet-banner.png" alt="Keet Messenger" class="keet-card__image" />
 
         <p>
-          Для приватной переписки, рабочих обсуждений и передачи крупных файлов
-          можно использовать <strong>Keet</strong> — защищённый мессенджер с прямым
-          соединением между пользователями.
+          Если важна стабильная связь без ограничений, передача больших файлов и приватность —
+          используйте <strong>Keet</strong>.
         </p>
+        
+        <div class="keet-features">
 
-        <ul class="secure-contact__list">
-          <li>без регистрации по номеру телефона</li>
-          <li>прямое P2P-соединение</li>
-          <li>передача больших файлов без сжатия</li>
-          <li>независимый канал связи</li>
-        </ul>
+        <p style="color:#ffca7a; font-weight:600;">
+          Нажмите на пункт, чтобы подробнее
+        </p>
+          
+          <details>
+            <summary>Всегда бесплатный</summary>
+            <p>
+              Keet — open-source проект на базе Holepunch. Нет серверов — нет затрат на инфраструктуру.
+              Поэтому здесь нет подписок, рекламы или платных лимитов.
+              Вы платите только своему интернет-провайдеру.
+            </p>
+          </details>
+        
+          <details>
+            <summary>Без номера телефона</summary>
+            <p>
+              Регистрация происходит через криптографический ключ. Не нужен телефон или email —
+              это защищает от спама, деанонимизации и утечек баз данных.
+            </p>
+          </details>
+        
+          <details>
+            <summary>Нельзя заблокировать</summary>
+            <p>
+              В Keet нет серверов — устройства соединяются напрямую (P2P).
+              Даже если сервисы блокируются, соединение остаётся доступным.
+            </p>
+          </details>
+        
+          <details>
+            <summary>Файлы любого размера</summary>
+            <p>
+              В отличие от Telegram и WhatsApp, нет ограничений.
+              Можно отправить 50–100 ГБ без сжатия и потери качества.
+            </p>
+          </details>
+        
+          <details>
+            <summary>Идеально для работы</summary>
+            <p>
+              Чертежи, видео, архивы — всё передаётся без искажений.
+              Получатель видит файл «как есть», без потерь.
+            </p>
+          </details>
+        
+          <details>
+            <summary>Данные только у вас</summary>
+            <p>
+              Сообщения не хранятся в облаке. Они есть только у участников диалога.
+              Нет стороннего доступа и хранения.
+            </p>
+          </details>
+        
+          <details>
+            <summary>Максимальная скорость</summary>
+            <p>
+              Нет промежуточных серверов. Скорость ограничена только вашим интернетом.
+              Особенно заметно при передаче больших файлов.
+            </p>
+          </details>
+        
+        </div>
 
         <div class="secure-contact__actions">
           <a href="https://keet.io/" target="_blank" rel="noopener" class="btn btn--primary">
@@ -781,6 +880,7 @@
           </a>
         </div>
       </div>
+      
     </div>
   </div>
 </section>
