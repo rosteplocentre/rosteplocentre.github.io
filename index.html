@@ -803,39 +803,52 @@
         <div class="card contact-form-card">
           <div class="kicker">Обратная связь</div>
           <h3 style="margin-bottom: 20px;">Заказать расчет проекта</h3>
+          
           <form id="contact-form" action="https://formspree.io/f/mlgodned" method="POST">
             <div style="margin-bottom: 12px;">
               <label style="display: block; font-size: 11px; text-transform: uppercase; opacity: 0.6; margin-bottom: 5px;">Имя</label>
-              <input type="text" name="name" placeholder="Иван Иванов" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; outline: none;">
+              <input type="text" name="name" placeholder="Иван Иванов" required 
+                     style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; outline: none;">
             </div>
+        
             <div style="margin-bottom: 12px;">
               <label style="display: block; font-size: 11px; text-transform: uppercase; opacity: 0.6; margin-bottom: 5px;">Телефон или Email</label>
-              <input type="text" name="contact" placeholder="+7 (___) ___-__-__" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; outline: none;">
+              <input type="text" name="contact" placeholder="+7 (___) ___-__-__" required 
+                     style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; outline: none;">
             </div>
+        
             <div style="margin-bottom: 20px;">
               <label style="display: block; font-size: 11px; text-transform: uppercase; opacity: 0.6; margin-bottom: 5px;">Сообщение / Объект</label>
-              <textarea name="message" rows="4" placeholder="Краткое описание задачи..." required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; outline: none; resize: none;"></textarea>
+              <textarea name="message" rows="4" placeholder="Краткое описание задачи..." required 
+                        style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; outline: none; resize: none;"></textarea>
             </div>
+            
             <button type="submit" class="btn btn--primary" style="width: 100%; padding: 14px; font-weight: bold; cursor: pointer;">
               Отправить заявку
             </button>
           </form>
+            
           <div id="form-thanks" style="display: none; text-align: center; padding: 30px 0;">
             <div style="font-size: 40px; margin-bottom: 10px;">✉️</div>
             <h4 style="color: #ff9d4d; margin-bottom: 10px;">Заявка принята!</h4>
-            <p style="font-size: 13px; opacity: 0.7;">Мы свяжемся с вами в ближайшее время.</p>
+            <p style="font-size: 13px; opacity: 0.7;">Мы свяжемся с вами в ближайшее время для уточнения деталей.</p>
           </div>
         </div>
+      </div>
 
-      </div> <div class="card keet-card">
+      <div class="card keet-card">
         <div class="kicker">Безопасная связь</div>
         <h3>Keet — мессенджер без серверов</h3>
+      
         <a href="https://keet.io/" target="_blank" rel="noopener">
           <img src="images/keet-banner.png" alt="Keet Messenger" class="keet-card__image" />
         </a>
+      
         <p style="margin-bottom: 15px;">
-          Если вам нужна стабильная связь без ограничений, передача больших файлов и приватность — используйте <strong>Keet</strong>.
+          Если вам нужна стабильная связь без ограничений, передача больших файлов и приватность —
+          используйте <strong>Keet</strong>.
         </p>
+
         <div class="keet-store-badges" style="display: flex; align-items: center; gap: 12px; margin-top: 15px; margin-bottom: 20px; flex-wrap: wrap;">
           <a href="https://apps.apple.com/us/app/keet-by-holepunch/id6443880549" target="_blank" rel="noopener" style="display: flex;">
             <img src="/images/download_appstore.svg" width="130" height="40" alt="Download on App Store" style="display: block; height: 40px; width: auto;">
@@ -843,36 +856,64 @@
           <a href="https://play.google.com/store/apps/details?id=io.keet.app" target="_blank" rel="noopener" style="display: flex;">
             <img src="/images/download_play.webp" width="138" height="40" alt="Get it on Google Play" style="display: block; height: 40px; width: auto;">
           </a>
-          <a href="https://github.com/holepunchto/keet-mobile-releases/releases" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; height: 38px; padding: 0 15px; font-size: 11px; font-weight: 600; color: #ff9d4d; text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid rgba(255,157,77,0.5); border-radius: 6px; background: rgba(255,157,77,0.05); box-sizing: border-box;">
+          <a href="https://github.com/holepunchto/keet-mobile-releases/releases" target="_blank" rel="noopener" 
+             style="display: inline-flex; align-items: center; justify-content: center; height: 38px; padding: 0 15px; font-size: 11px; font-weight: 600; color: #ff9d4d; text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid rgba(255,157,77,0.5); border-radius: 6px; background: rgba(255,157,77,0.05); box-sizing: border-box; transition: all 0.2s ease;">
             Direct APK
           </a>
-        </div>
+        </div> 
         
-        <p style="margin-bottom: 15px;">Это децентрализованный мессенджер: сообщения и файлы передаются напрямую между устройствами (P2P).</p>
+        <p style="margin-bottom: 15px;">
+          Это децентрализованный мессенджер: сообщения и файлы передаются напрямую между устройствами (P2P).
+        </p>
         
         <div class="keet-features">
-          <details><summary>Всегда бесплатный</summary><p>Keet — это open-source проект на базе Holepunch. Нет серверов и нет затрат на инфраструктуру.</p></details>
-          <details><summary>Без номера телефона и E-mail</summary><p>Регистрация происходит через создание уникального криптографического ключа.</p></details>
-          <details><summary>Не зависит от блокировок</summary><p>В Keet нет центральных серверов — устройства соединяются напрямую (P2P).</p></details>
-          <details><summary>Файлы любого размера</summary><p>Можно отправить архив на 5 ГБ и более без сжатия напрямую.</p></details>
-          <details><summary>Идеально для работы</summary><p>Чертежи, 4K-видео, массивные архивы передаются без искажений.</p></details>
-          <details><summary>Данные только у вас</summary><p>Ваши сообщения и файлы не хранятся в «облаке».</p></details>
-          <details><summary>Максимальная скорость</summary><p>Отсутствие промежуточных серверов убирает задержки.</p></details>
+          <details>
+            <summary>Всегда бесплатный</summary>
+            <p>Keet — это open-source проект на базе Holepunch. Нет серверов и нет затрат на инфраструктуру. Поэтому здесь отсутствует реклама или платные лимиты.</p>
+          </details>
+          <details>
+            <summary>Без номера телефона и E-mail</summary>
+            <p>Регистрация происходит через создание уникального криптографического ключа. Не нужен ни телефон, ни email, это полностью защищает от спама и утечек личных данных.</p>
+          </details>
+          <details>
+            <summary>Не зависит от блокировок</summary>
+            <p>В Keet нет центральных серверов — устройства соединяются напрямую (P2P). Даже если глобальные сервисы станут недоступны, прямое соединение между пользователями остаётся активным.</p>
+          </details>
+          <details>
+            <summary>Файлы любого размера</summary>
+            <p>В отличие от Telegram и WhatsApp, здесь нет ограничений на объем. Можно отправить архив на 5 ГБ и более без сжатия напрямую с вашего устройства.</p>
+          </details>
+          <details>
+            <summary>Идеально для работы</summary>
+            <p>Чертежи, 4K-видео, массивные архивы, всё передаётся без искажений. Поддержка Keet стриминга позволяет смотреть видео сразу.</p>
+          </details>
+          <details>
+            <summary>Данные только у вас</summary>
+            <p>Ваши сообщения и файлы не хранятся в «облаке». Они существуют только на ваших устройствах. Нет посредников.</p>
+          </details>
+          <details>
+            <summary>Максимальная скорость</summary>
+            <p>Отсутствие промежуточных серверов убирает лишние задержки. Скорость передачи ограничена только возможностями вашего канала.</p>
+          </details>
         </div>
-
+      
         <div class="secure-contact__actions" style="margin-top: 20px;">
           <div class="action-wrapper" style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
-            <a href="https://keet.io/" target="_blank" rel="noopener" class="btn btn--primary">Перейти на сайт Keet</a>
+            <a href="https://keet.io/" target="_blank" rel="noopener" class="btn btn--primary">
+              Перейти на сайт Keet
+            </a>
             <div class="blocking-notice" style="max-width: 300px; line-height: 1.2;">
               <span style="color: #ff9d4d; font-size: 13px; font-weight: bold; display: block; margin-bottom: 2px;">⚠️ Сайт заблокирован в РФ</span>
-              <span style="color: rgba(255,255,255,0.7); font-size: 11px;">Требуется средство для свободного доступа.</span>
+              <span style="color: rgba(255,255,255,0.7); font-size: 11px;">Для первичной загрузки дистрибутива потребуется средство для свободного доступа. Само приложение работает напрямую.</span>
             </div>
           </div>
         </div>
       </div>
+      
+    </div>
+  </div>
+</section>
 
-    </div> </div> </section>
-    
 <footer class="footer">
   <div class="container">
     © 2026 РОСТЕПЛОЦЕНТР. Монтаж внутренних инженерных сетей и поставка оборудования.
