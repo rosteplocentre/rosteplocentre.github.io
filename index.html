@@ -798,6 +798,41 @@
         </div>
       </div>
 
+      <div class="card contact-form-card" style="margin-top: 24px;">
+        <div class="kicker">Обратная связь</div>
+        <h3 style="margin-bottom: 20px;">Заказать расчет проекта</h3>
+        
+        <form id="contact-form" action="https://formspree.io/f/mlgodned" method="POST">
+          <div style="margin-bottom: 12px;">
+            <label style="display: block; font-size: 11px; text-transform: uppercase; opacity: 0.6; margin-bottom: 5px;">Имя</label>
+            <input type="text" name="name" placeholder="Иван Иванов" required 
+                   style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; outline: none;">
+          </div>
+      
+          <div style="margin-bottom: 12px;">
+            <label style="display: block; font-size: 11px; text-transform: uppercase; opacity: 0.6; margin-bottom: 5px;">Телефон или Email</label>
+            <input type="text" name="contact" placeholder="+7 (___) ___-__-__" required 
+                   style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; outline: none;">
+          </div>
+      
+          <div style="margin-bottom: 20px;">
+            <label style="display: block; font-size: 11px; text-transform: uppercase; opacity: 0.6; margin-bottom: 5px;">Сообщение / Объект</label>
+            <textarea name="message" rows="4" placeholder="Краткое описание задачи..." required 
+                      style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; outline: none; resize: none;"></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn--primary" style="width: 100%; padding: 14px; font-weight: bold; cursor: pointer;">
+            Отправить заявку
+          </button>
+        </form>
+      
+        <div id="form-thanks" style="display: none; text-align: center; padding: 30px 0;">
+          <div style="font-size: 40px; margin-bottom: 10px;">✉️</div>
+          <h4 style="color: #ff9d4d; margin-bottom: 10px;">Заявка принята!</h4>
+          <p style="font-size: 13px; opacity: 0.7;">Мы свяжемся с вами в ближайшее время для уточнения деталей.</p>
+        </div>
+      </div>
+      
       <div class="card keet-card">
         <div class="kicker">Безопасная связь</div>
         <h3>Keet — мессенджер без серверов</h3>
@@ -849,42 +884,7 @@
              ">
             Direct APK
           </a>
-        </div>
-
-        <div class="card contact-form-card" style="margin-top: 24px;">
-          <div class="kicker">Обратная связь</div>
-          <h3 style="margin-bottom: 20px;">Заказать расчет проекта</h3>
-          
-          <form id="contact-form" action="https://formspree.io/f/mlgodned" method="POST">
-            <div style="margin-bottom: 12px;">
-              <label style="display: block; font-size: 11px; text-transform: uppercase; opacity: 0.6; margin-bottom: 5px;">Имя</label>
-              <input type="text" name="name" placeholder="Иван Иванов" required 
-                     style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; outline: none;">
-            </div>
-        
-            <div style="margin-bottom: 12px;">
-              <label style="display: block; font-size: 11px; text-transform: uppercase; opacity: 0.6; margin-bottom: 5px;">Телефон или Email</label>
-              <input type="text" name="contact" placeholder="+7 (___) ___-__-__" required 
-                     style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; outline: none;">
-            </div>
-        
-            <div style="margin-bottom: 20px;">
-              <label style="display: block; font-size: 11px; text-transform: uppercase; opacity: 0.6; margin-bottom: 5px;">Сообщение / Объект</label>
-              <textarea name="message" rows="4" placeholder="Краткое описание задачи..." required 
-                        style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; outline: none; resize: none;"></textarea>
-            </div>
-            
-            <button type="submit" class="btn btn--primary" style="width: 100%; padding: 14px; font-weight: bold; cursor: pointer;">
-              Отправить заявку
-            </button>
-          </form>
-        
-          <div id="form-thanks" style="display: none; text-align: center; padding: 30px 0;">
-            <div style="font-size: 40px; margin-bottom: 10px;">✉️</div>
-            <h4 style="color: #ff9d4d; margin-bottom: 10px;">Заявка принята!</h4>
-            <p style="font-size: 13px; opacity: 0.7;">Мы свяжемся с вами в ближайшее время для уточнения деталей.</p>
-          </div>
-        </div>        
+        </div> 
         
         <p style="margin-bottom: 15px;">
           Это децентрализованный мессенджер: сообщения и файлы передаются напрямую между устройствами (P2P).
