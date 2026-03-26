@@ -811,13 +811,23 @@
           используйте <strong>Keet</strong>.
         </p>
 
-        <div class="keet-store-badges" style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
-          <a href="https://apps.apple.com/us/app/keet-by-holepunch/id6443880549" target="_blank" rel="noopener">
-            <img src="/images/download_appstore.svg" width="130" alt="Download on App Store">
+        <div class="keet-store-badges" style="
+            display: flex;
+            align-items: center; /* Выравнивает все элементы строго по центру по вертикали */
+            gap: 12px;           /* Отступ между кнопками */
+            margin-top: 15px;    /* Отступ от текста сверху */
+            margin-bottom: 20px; /* Отступ до текста снизу */
+            flex-wrap: wrap;     /* Чтобы на мобильных кнопках переносились аккуратно */
+        ">
+          
+          <a href="https://apps.apple.com/us/app/keet-by-holepunch/id6443880549" target="_blank" rel="noopener" style="display: flex;">
+            <img src="/images/download_appstore.svg" width="130" height="40" alt="Download on App Store" style="display: block; height: 40px; width: auto;">
           </a>
-          <a href="https://play.google.com/store/apps/details?id=io.keet.app" target="_blank" rel="noopener">
-            <img src="/images/download_play.webp" width="130" alt="Get it on Google Play">
+        
+          <a href="https://play.google.com/store/apps/details?id=io.keet.app" target="_blank" rel="noopener" style="display: flex;">
+            <img src="/images/download_play.webp" width="138" height="40" alt="Get it on Google Play" style="display: block; height: 40px; width: auto;">
           </a>
+        
           <a href="https://github.com/holepunchto/keet-mobile-releases/releases" target="_blank" rel="noopener" 
              style="
                 display: inline-flex;
@@ -839,6 +849,7 @@
              ">
             Direct APK
           </a>
+        
         </div>
         
         <p style="margin-bottom: 15px;">
