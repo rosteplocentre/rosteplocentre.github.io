@@ -207,8 +207,11 @@
       </p>
 
       <form id="installer-form" action="https://formspree.io/f/xbdplpyg" method="POST">
+
+        <input type="hidden" name="_subject" id="subject-field">
+        
         <div class="form-group">
-          <input type="text" name="name" placeholder="Ваше имя" required>
+          <input type="text" name="name" placeholder="Ваше имя" id="name-field" required>
         </div>
 
         <div class="form-group">
@@ -216,7 +219,7 @@
         </div>
 
         <div class="form-group">
-          <select name="object" required>
+          <select name="object" id="object-field" required>
             <option value="">Выберите объект</option>
             <option>Янтарный</option>
             <option>Светлогорск</option>
@@ -252,7 +255,17 @@
       </div>
     </div>
   </div>
-
+  
+  <script>
+  document.getElementById('installer-form').addEventListener('submit', function () {
+    const name = document.getElementById('name-field').value || 'Без имени';
+    const object = document.getElementById('object-field').value || 'Без объекта';
+  
+    document.getElementById('subject-field').value =
+      `Заявка | ${name} | ${object}`;
+  });
+  </script>
+  
   <script>
     const form = document.getElementById('installer-form');
     const thanks = document.getElementById('thanks');
