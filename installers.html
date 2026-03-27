@@ -116,20 +116,24 @@
 
         <input type="text" name="name" placeholder="Ваше имя" required>
         <input type="text" name="phone" placeholder="Телефон" required>
-        <input type="text" name="object" placeholder="Объект (адрес / ЖК)">
-
-        <select name="type">
-          <option value="">Что требуется</option>
-          <option>Котёл</option>
-          <option>Радиаторы</option>
-          <option>ППР</option>
-          <option>Канализация</option>
-          <option>Двери</option>
-          <option>Дымоход</option>
-          <option>Другое</option>
+        <select name="object" required>
+          <option value="">Выберите объект</option>
+          <option>Янтарный</option>
+          <option>Светлогорск</option>
+          <option>Пионерский (ЖК Рыбное)</option>
+          <option>Коммунистическая</option>
+          <option>Суздальская</option>
+          <option>Персональная</option>
+          <option>Иное</option>
         </select>
 
-        <textarea name="message" rows="4" placeholder="Описание заявки"></textarea>
+        <textarea
+          name="message"
+          rows="8"
+          placeholder="1. Что требуется&#10;2. Количество&#10;3. Срок&#10;4. Комментарий"
+          style="width: 100%; padding: 14px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; outline: none; resize: vertical; line-height: 1.5;"
+          required
+        ></textarea>
 
         <input type="hidden" name="form_type" value="installer">
 
