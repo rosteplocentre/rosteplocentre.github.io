@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Заявка для монтажников — РОСТЕПЛОЦЕНТР</title>
+
+  <style>
+    :root {
+      --bg: #0b1220;
+      --card: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.12);
+      --text: #f5f7fb;
+      --muted: #b7c0d1;
+      --accent: #f59e0b;
+      --accent-2: #f97316;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Arial;
+      background: linear-gradient(180deg, #09101c, #0b1220);
+      color: var(--text);
+    }
+
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 40px 16px;
+    }
+
+    .logo {
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .kicker {
+      font-size: 12px;
+      color: #ffca7a;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 26px;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border-radius: 999px;
+      border: none;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      cursor: pointer;
+    }
+
+    .note {
+      font-size: 11px;
+      opacity: 0.6;
+      margin-top: 10px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 20px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <a href="/" class="back">← На главную</a>
+
+    <div class="logo">РОСТЕПЛОЦЕНТР</div>
+
+    <div class="card">
+
+      <div class="kicker">Для монтажников</div>
+      <h1>Заявка на материалы / оборудование</h1>
+
+      <p>
+        Заполните форму — мы быстро обработаем заявку и свяжемся с вами.
+      </p>
+
+      <form id="installer-form" action="https://formspree.io/f/xbdplpyg" method="POST">
+
+        <input type="text" name="name" placeholder="Ваше имя" required>
+        <input type="text" name="phone" placeholder="Телефон" required>
+        <input type="text" name="object" placeholder="Объект (адрес / ЖК)">
+
+        <select name="type">
+          <option value="">Что требуется</option>
+          <option>Котёл</option>
+          <option>Радиаторы</option>
+          <option>ППР</option>
+          <option>Канализация</option>
+          <option>Двери</option>
+          <option>Дымоход</option>
+          <option>Другое</option>
+        </select>
+
+        <textarea name="message" rows="4" placeholder="Описание заявки"></textarea>
+
+        <input type="hidden" name="form_type" value="installer">
+
+        <button type="submit">Отправить заявку</button>
+
+        <div class="note">
+          Данные используются только для обработки заявки
+        </div>
+
+      </form>
+
+      <div id="thanks" style="display:none; text-align:center;">
+        <h3>Заявка отправлена</h3>
+        <p>Мы свяжемся с вами</p>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('installer-form');
+    const thanks = document.getElementById('thanks');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const data = new FormData(form);
+
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        form.style.display = 'none';
+        thanks.style.display = 'block';
+      }
+    });
+  </script>
+
+</body>
+</html>
