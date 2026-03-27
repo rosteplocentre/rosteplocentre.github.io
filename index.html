@@ -1,7 +1,9 @@
+<!DOCTYPE html>
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
   <title>РОСТЕПЛОЦЕНТР — монтаж внутренних инженерных сетей и поставка оборудования</title>
   <meta name="description" content="РОСТЕПЛОЦЕНТР — монтаж внутренних инженерных сетей и поставка оборудования: газовые котлы, радиаторы отопления, ППР трубы, канализация, двери, металл для дымоотводов." />
 
@@ -17,101 +19,25 @@
   <meta property="og:image" content="https://rosteplocentre.github.io/apple-touch-icon.png">
 
   <style>
-    .contacts-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      align-items: start;
-    }
-    
-    .keet-card__image {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 18px;
-      margin: 14px 0 18px;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    
-    .keet-card p {
-      color: var(--muted);
-    }
-    
-    .secure-contact__list {
-      margin: 0 0 22px;
-      padding-left: 18px;
-      color: #dbe4f0;
-    }
-    
-    .secure-contact__list li {
-      margin-bottom: 8px;
-    }
-    
-    .secure-contact__actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    
-    @media (max-width: 1024px) {
-      .contacts-grid {
-        grid-template-columns: 1fr;
-      }
-    } 
- 
-    .keet-features details {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px;
-      padding: 14px 16px;
-      margin-bottom: 10px;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
-    
-    .keet-features details:hover {
-      background: rgba(255,255,255,0.06);
-    }
-    
-    .keet-features summary {
-      font-weight: 600;
-      color: #fff;
-      list-style: none;
-    }
-    
-    .keet-features summary::-webkit-details-marker {
-      display: none;
-    }
-    
-    .keet-features summary::after {
-      content: "＋";
-      float: right;
-      color: #ffca7a;
-    }
-    
-    .keet-features details[open] summary::after {
-      content: "−";
-    }
-    
-    .keet-features p {
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
     :root {
       --bg: #0b1220;
       --bg-soft: #111a2b;
       --card: rgba(255, 255, 255, 0.06);
+      --card-strong: rgba(255, 255, 255, 0.08);
       --card-border: rgba(255, 255, 255, 0.12);
       --text: #f5f7fb;
       --muted: #b7c0d1;
       --accent: #f59e0b;
       --accent-2: #f97316;
+      --accent-soft: rgba(245, 158, 11, 0.12);
       --line: rgba(255, 255, 255, 0.08);
       --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --shadow-soft: 0 12px 35px rgba(0, 0, 0, 0.22);
       --radius: 22px;
+      --radius-sm: 16px;
+      --radius-xs: 12px;
       --maxw: 1180px;
+      --header-height: 76px;
     }
 
     * {
@@ -130,12 +56,26 @@
         radial-gradient(circle at left center, rgba(249, 115, 22, 0.10), transparent 22%),
         linear-gradient(180deg, #09101c 0%, #0b1220 100%);
       color: var(--text);
-      line-height: 1.55;
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
 
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
     }
 
     .container {
@@ -148,15 +88,15 @@
       top: 0;
       z-index: 100;
       backdrop-filter: blur(14px);
-      background: rgba(8, 13, 24, 0.65);
+      background: rgba(8, 13, 24, 0.72);
       border-bottom: 1px solid var(--line);
     }
 
     .site-header__inner {
+      min-height: var(--header-height);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 76px;
       gap: 20px;
     }
 
@@ -164,29 +104,33 @@
       display: flex;
       flex-direction: column;
       gap: 4px;
+      min-width: 0;
     }
 
     .logo__title {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       font-weight: 800;
       letter-spacing: 0.04em;
+      line-height: 1.15;
     }
 
     .logo__subtitle {
       font-size: 0.88rem;
       color: var(--muted);
+      line-height: 1.3;
     }
 
     .nav {
       display: flex;
       gap: 24px;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .nav a {
       color: var(--muted);
       font-size: 0.96rem;
-      transition: 0.2s ease;
+      transition: color 0.2s ease;
     }
 
     .nav a:hover {
@@ -201,9 +145,19 @@
       padding: 0 22px;
       border-radius: 999px;
       font-weight: 700;
-      transition: 0.2s ease;
       border: 1px solid transparent;
       cursor: pointer;
+      transition: transform 0.2s ease, filter 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn:active {
+      transform: translateY(0);
     }
 
     .btn--primary {
@@ -213,7 +167,6 @@
     }
 
     .btn--primary:hover {
-      transform: translateY(-1px);
       filter: brightness(1.04);
     }
 
@@ -227,13 +180,27 @@
       background: rgba(255, 255, 255, 0.08);
     }
 
+    .btn--cta {
+      background: linear-gradient(135deg, #ffb347, #ff7a18);
+      color: #1a1a1a;
+      box-shadow:
+        0 10px 30px rgba(255, 122, 24, 0.35),
+        0 0 20px rgba(255, 160, 80, 0.25);
+    }
+
+    .btn--cta:hover {
+      box-shadow:
+        0 14px 40px rgba(255, 122, 24, 0.5),
+        0 0 30px rgba(255, 160, 80, 0.35);
+    }
+
     .hero {
-      padding: 82px 0 52px;
+      padding: 82px 0 56px;
     }
 
     .hero__grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
       gap: 34px;
       align-items: center;
     }
@@ -254,9 +221,10 @@
 
     h1 {
       margin: 0 0 18px;
-      font-size: clamp(2.3rem, 5vw, 4.6rem);
+      font-size: clamp(2.25rem, 5vw, 4.6rem);
       line-height: 1.03;
       letter-spacing: -0.03em;
+      max-width: 14ch;
     }
 
     .hero__accent {
@@ -267,7 +235,7 @@
       max-width: 760px;
       margin: 0 0 28px;
       color: var(--muted);
-      font-size: 1.1rem;
+      font-size: 1.08rem;
     }
 
     .hero__actions {
@@ -321,12 +289,16 @@
       margin-bottom: 16px;
       font-weight: 700;
       letter-spacing: 0.02em;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-card__grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
+      position: relative;
+      z-index: 1;
     }
 
     .mini-card {
@@ -334,6 +306,7 @@
       border-radius: 18px;
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.08);
+      min-height: 100%;
     }
 
     .mini-card span {
@@ -350,7 +323,8 @@
     }
 
     section {
-      padding: 44px 0;
+      padding: 48px 0;
+      scroll-margin-top: 96px;
     }
 
     .section-head {
@@ -370,8 +344,12 @@
     h2 {
       margin: 0 0 12px;
       font-size: clamp(1.8rem, 3.5vw, 3rem);
-      line-height: 1.1;
+      line-height: 1.12;
       letter-spacing: -0.02em;
+    }
+
+    h3 {
+      line-height: 1.25;
     }
 
     .section-head p {
@@ -383,21 +361,29 @@
     .services,
     .advantages,
     .steps,
-    .contacts {
+    .contacts-grid {
       display: grid;
       gap: 18px;
     }
 
-    .services {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
+    .services,
     .advantages {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .steps {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .contacts-grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: start;
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
     }
 
     .card {
@@ -405,7 +391,8 @@
       border: 1px solid var(--card-border);
       border-radius: var(--radius);
       padding: 24px;
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-soft);
+      min-width: 0;
     }
 
     .service__num,
@@ -440,7 +427,7 @@
     }
 
     .cta {
-      padding: 60px 0;
+      padding: 64px 0;
     }
 
     .cta__box {
@@ -487,6 +474,234 @@
       word-break: break-word;
     }
 
+    .contact-item__value a:hover {
+      color: #ffd08a;
+    }
+
+    .contact-form-card,
+    .keet-card {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .contact-form-card .kicker,
+    .keet-card .kicker,
+    .contact-form-card h3,
+    .keet-card h3 {
+      margin: 0;
+    }
+
+    .contact-form-card form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-form-card label {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .contact-form-card input,
+    .contact-form-card textarea {
+      width: 100%;
+      display: block;
+      padding: 13px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .contact-form-card input::placeholder,
+    .contact-form-card textarea::placeholder {
+      color: rgba(255,255,255,0.45);
+    }
+
+    .contact-form-card textarea {
+      min-height: 120px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    .contact-form-card input:focus,
+    .contact-form-card textarea:focus {
+      border-color: rgba(255, 157, 77, 0.6);
+      box-shadow: 0 0 0 2px rgba(255, 157, 77, 0.15);
+      background: rgba(255,255,255,0.065);
+    }
+
+    .form-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .form-actions .btn {
+      flex: 0 0 auto;
+      width: auto;
+    }
+
+    .form-note {
+      font-size: 11px;
+      color: rgba(255,255,255,0.7);
+      max-width: 280px;
+      line-height: 1.4;
+    }
+
+    #form-thanks {
+      display: none;
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    #form-thanks h4 {
+      margin: 0 0 10px;
+      color: #ff9d4d;
+    }
+
+    #form-thanks p {
+      margin: 0;
+      font-size: 13px;
+      opacity: 0.75;
+    }
+
+    .keet-card__image {
+      width: 100%;
+      border-radius: 18px;
+      margin: 6px 0 2px;
+      border: 1px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+    }
+
+    .keet-card p {
+      color: var(--muted);
+    }
+
+    .keet-store-badges {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .keet-store-badges a {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .download-apk {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      padding: 0 15px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #ff9d4d;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(255,157,77,0.5);
+      border-radius: 8px;
+      background: rgba(255,157,77,0.05);
+      transition: all 0.2s ease;
+    }
+
+    .download-apk:hover {
+      background: rgba(255,157,77,0.1);
+      border-color: rgba(255,157,77,0.72);
+    }
+
+    .keet-features {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .keet-features details {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 14px 16px;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .keet-features details:hover {
+      background: rgba(255,255,255,0.06);
+    }
+
+    .keet-features summary {
+      font-weight: 600;
+      color: #fff;
+      list-style: none;
+      position: relative;
+      padding-right: 26px;
+    }
+
+    .keet-features summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .keet-features summary::after {
+      content: "＋";
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: #ffca7a;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    .keet-features details[open] summary::after {
+      content: "−";
+    }
+
+    .keet-features p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .secure-contact__actions {
+      margin-top: 6px;
+    }
+
+    .action-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .blocking-notice {
+      max-width: 300px;
+      line-height: 1.3;
+    }
+
+    .blocking-notice strong {
+      display: block;
+      margin-bottom: 3px;
+      color: #ff9d4d;
+      font-size: 13px;
+    }
+
+    .blocking-notice span {
+      color: rgba(255,255,255,0.7);
+      font-size: 11px;
+    }
+
     .footer {
       padding: 26px 0 36px;
       border-top: 1px solid var(--line);
@@ -494,19 +709,37 @@
       font-size: 0.95rem;
     }
 
-    @media (max-width: 1024px) {
-      .hero__grid,
+    @media (max-width: 1100px) {
+      .hero__grid {
+        grid-template-columns: 1fr;
+      }
+
       .services,
-      .advantages,
-      .steps,
-      .hero-card__grid {
-        grid-template-columns: 1fr 1fr;
+      .advantages {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .contacts-grid {
+        grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 760px) {
+      :root {
+        --header-height: 68px;
+        --radius: 18px;
+      }
+
+      .container {
+        width: min(var(--maxw), calc(100% - 20px));
+      }
+
       .site-header__inner {
-        min-height: 68px;
+        min-height: var(--header-height);
       }
 
       .nav {
@@ -514,191 +747,105 @@
       }
 
       .hero {
-        padding-top: 56px;
+        padding: 54px 0 36px;
+      }
+
+      h1 {
+        max-width: none;
+        font-size: clamp(2rem, 10vw, 3rem);
       }
 
       .lead {
         font-size: 1rem;
       }
 
-      .hero-card__grid {
-        grid-template-columns: 1fr;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
       .hero__actions {
         flex-direction: column;
       }
+
+      .hero__actions .btn {
+        width: 100%;
+      }
+
+      .hero-card {
+        padding: 20px;
+      }
+
+      .hero-card__grid,
+      .services,
+      .advantages,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 38px 0;
+      }
+
+      .card,
+      .cta__box {
+        padding: 20px;
+      }
+
+      .badge {
+        font-size: 0.86rem;
+        line-height: 1.35;
+        min-height: auto;
+        padding: 10px 14px;
+      }
+
+      .hero__facts li {
+        width: 100%;
+        border-radius: 16px;
+      }
+
+      .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .form-actions .btn {
+        width: 100%;
+      }
+
+      .form-note,
+      .blocking-notice {
+        max-width: none;
+      }
+
+      .action-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .action-wrapper .btn {
+        width: 100%;
+      }
+
+      .keet-store-badges {
+        gap: 10px;
+      }
     }
 
-    .btn--cta {
-      background: linear-gradient(135deg, #ffb347, #ff7a18);
-      color: #1a1a1a;
-      box-shadow:
-        0 10px 30px rgba(255, 122, 24, 0.35),
-        0 0 20px rgba(255, 160, 80, 0.25);
-      transition: all 0.25s ease;
-    }
-    
-    .btn--cta:hover {
-      transform: translateY(-2px);
-      box-shadow:
-        0 14px 40px rgba(255, 122, 24, 0.5),
-        0 0 30px rgba(255, 160, 80, 0.35);
-    }
+    @media (max-width: 420px) {
+      .logo__title {
+        font-size: 1rem;
+      }
 
-  .contact-form-card,
-  .keet-card {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
-  
-  .contact-form-card form {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  
-  .contact-form-card label {
-    display: block;
-    font-size: 11px;
-    text-transform: uppercase;
-    opacity: 0.6;
-    margin-bottom: 6px;
-  }
-  
-  .contact-form-card input,
-  .contact-form-card textarea {
-    width: 100%;
-    display: block;
-    box-sizing: border-box;
-    padding: 12px 14px;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.1);
-    background: rgba(255,255,255,0.05);
-    color: #fff;
-    outline: none;
-  }
-  
-  .contact-form-card textarea {
-    min-height: 110px;
-    resize: vertical;
-    line-height: 1.5;
-  }
-  
-  .contact-form-card input:focus,
-  .contact-form-card textarea:focus {
-    border-color: rgba(255, 157, 77, 0.6);
-    box-shadow: 0 0 0 2px rgba(255, 157, 77, 0.15);
-  }
-  
-    .contact-form-card .btn,
-    .secure-contact__actions .btn {
-      min-height: 52px;
-      padding: 0 22px;
-      border-radius: 999px;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .contact-form-card .btn--primary {
-      background: linear-gradient(135deg, #ffb347, #ff7a18);
-      color: #1a1a1a;
-      box-shadow:
-        0 10px 30px rgba(255, 122, 24, 0.35),
-        0 0 20px rgba(255, 160, 80, 0.2);
-    }
-    
-    .contact-form-card .btn--primary:hover {
-      transform: translateY(-1px);
-      box-shadow:
-        0 14px 40px rgba(255, 122, 24, 0.45),
-        0 0 28px rgba(255, 160, 80, 0.28);
-    }
-     
-    .form-actions .btn {
-      flex: 0 0 auto;
-      width: auto;
-    }
-  
-  .form-actions .form-note {
-    font-size: 11px;
-    color: rgba(255,255,255,0.7);
-    max-width: 240px;
-    line-height: 1.35;
-  }
-  
-  .keet-card h3,
-  .contact-form-card h3 {
-    margin: 0;
-  }
-  
-  .keet-card .kicker,
-  .contact-form-card .kicker {
-    margin-bottom: 0;
-  }
-  
-  .keet-store-badges {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin: 2px 0 2px;
-    flex-wrap: wrap;
-  }
-  
-  .keet-features {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .keet-features details {
-    margin-bottom: 0;
-  }
-  
-  .secure-contact__actions {
-    margin-top: 4px;
-  }
-  
-  @media (max-width: 760px) {
-    .form-actions {
-      flex-direction: column;
-      align-items: stretch;
-    }
-  
-    .form-actions .form-note {
-      max-width: none;
-    }
-  
-    .contact-form-card .btn {
-      width: 100%;
-    }
-  }
+      .logo__subtitle {
+        font-size: 0.8rem;
+      }
 
-  #form-thanks {
-    display: none;
-    text-align: center;
-    padding: 30px 0;
-  }
-  
-  #form-thanks h4 {
-    margin: 0 0 10px;
-  }
-  
-  #form-thanks p {
-    margin: 0;
-    font-size: 13px;
-    opacity: 0.7;
-  }    
-    
-</style>
-  
+      .btn {
+        min-height: 50px;
+        padding: 0 18px;
+      }
+
+      .contact-item {
+        padding: 14px 16px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -712,7 +859,6 @@
       <nav class="nav">
         <a href="#about">О компании</a>
         <a href="#services">Направления</a>
-        <!--<a href="#advantages">Преимущества</a>-->
         <a href="#contacts">Контакты</a>
       </nav>
     </div>
@@ -723,11 +869,13 @@
       <div class="container hero__grid">
         <div>
           <div class="badge">Монтаж внутренних инженерных сетей • Комплектация объектов</div>
+
           <h1>
             Поставка оборудования и
             <span class="hero__accent">монтаж инженерных систем</span>
             для жилых комплексов.
           </h1>
+
           <p class="lead">
             РОСТЕПЛОЦЕНТР занимается поставкой инженерного оборудования и материалов,
             а также монтажом внутренних инженерных сетей. Работаем с объектами строительства и подрядчиками.
@@ -799,6 +947,7 @@
               Поставка оборудования и материалов в одном контуре с инженерной логикой объекта.
             </p>
           </div>
+
           <div class="card">
             <div class="advantage__icon">🏗️</div>
             <h3>Работа с объектами</h3>
@@ -806,6 +955,7 @@
               Подходим не как витрина, а как практический поставщик и исполнитель для стройки и монтажа.
             </p>
           </div>
+
           <div class="card">
             <div class="advantage__icon">🤝</div>
             <h3>Понятное взаимодействие</h3>
@@ -835,6 +985,7 @@
               Подбор и поставка газовых котлов для отопительных систем многоквартирных жилых комплексов, частных и коммерческих объектов.
             </p>
           </div>
+
           <div class="card">
             <div class="service__num">02</div>
             <h3>Радиаторы отопления</h3>
@@ -842,6 +993,7 @@
               Оборудование для систем отопления, комплектация по проекту или по задаче объекта.
             </p>
           </div>
+
           <div class="card">
             <div class="service__num">03</div>
             <h3>ППР трубы</h3>
@@ -849,6 +1001,7 @@
               Трубы и фитинги для внутренних инженерных систем водоснабжения и отопления.
             </p>
           </div>
+
           <div class="card">
             <div class="service__num">04</div>
             <h3>Канализация</h3>
@@ -856,6 +1009,7 @@
               Материалы и элементы для систем внутренней и наружной канализации.
             </p>
           </div>
+
           <div class="card">
             <div class="service__num">05</div>
             <h3>Двери</h3>
@@ -863,6 +1017,7 @@
               Поставка дверей для многоквартирных строительных объектов.
             </p>
           </div>
+
           <div class="card">
             <div class="service__num">06</div>
             <h3>Металл для дымоотводов</h3>
@@ -890,16 +1045,19 @@
             <h3>Получаем задачу</h3>
             <p>Уточняем объект, объём, сроки, формат поставки и особенности комплектации.</p>
           </div>
+
           <div class="card">
             <div class="step__num">Шаг 2</div>
             <h3>Формируем решение</h3>
             <p>Подбираем оборудование, материалы и оптимальную схему поставки под задачу.</p>
           </div>
+
           <div class="card">
             <div class="step__num">Шаг 3</div>
             <h3>Комплектуем объект</h3>
             <p>Организуем поставку и хранение, закрываем потребность по инженерным материалам и позициям.</p>
           </div>
+
           <div class="card">
             <div class="step__num">Шаг 4</div>
             <h3>Доводим до результата</h3>
@@ -917,219 +1075,230 @@
             РОСТЕПЛОЦЕНТР — это инженерный подход, понятная коммуникация и практическая работа
             с внутренними инженерными сетями и поставкой оборудования.
           </p>
-          <a class="btn btn--primary" href="#form-actions"">Оставить заявку</a>
+          <a class="btn btn--primary" href="#contact-form">Оставить заявку</a>
         </div>
       </div>
     </section>
 
-<section id="contacts">
-  <div class="container">
-    <div class="contacts-grid">
-      <div style="display: flex; flex-direction: column; gap: 24px;">
-        
-        <div class="card">
-          <div class="kicker">Контакты</div>
-          <h3>Основные контакты</h3>
-          <div class="contact-list">
-            <div class="contact-item">
-              <div class="contact-item__label">Телефон</div>
-              <div class="contact-item__value">
-                <a href="tel:+79005643883" style="color: inherit; text-decoration: none;">+7 (900) 564-38-83</a>
+    <section id="contacts">
+      <div class="container">
+        <div class="contacts-grid">
+          <div class="stack">
+            <div class="card">
+              <div class="kicker">Контакты</div>
+              <h3>Основные контакты</h3>
+
+              <div class="contact-list">
+                <div class="contact-item">
+                  <div class="contact-item__label">Телефон</div>
+                  <div class="contact-item__value">
+                    <a href="tel:+79005643883">+7 (900) 564-38-83</a>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-item__label">Режим работы</div>
+                  <div class="contact-item__value">Пн — Пт: 09:00 – 18:00</div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-item__label">E-mail</div>
+                  <div class="contact-item__value">
+                    <a href="mailto:2infodc39@gmail.com">2infodc39@gmail.com</a>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-item__label">Город</div>
+                  <div class="contact-item__value">Калининград</div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-item__label">Направление</div>
+                  <div class="contact-item__value">
+                    Монтаж внутренних инженерных сетей и поставка оборудования
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="contact-item">
-              <div class="contact-item__label">Режим работы</div>
-              <div class="contact-item__value">Пн — Пт: 09:00 – 18:00</div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item__label">E-mail</div>
-              <div class="contact-item__value">
-                <a href="mailto:2infodc39@gmail.com" style="color: inherit; text-decoration: none;">2infodc39@gmail.com</a></div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item__label">Город</div>
-              <div class="contact-item__value">Калининград</div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item__label">Направление</div>
-              <div class="contact-item__value">
-                Монтаж внутренних инженерных сетей и поставка оборудования
+
+            <div class="card contact-form-card">
+              <div class="kicker">Обратная связь</div>
+
+              <form id="contact-form" action="https://formspree.io/f/mlgodned" method="POST">
+                <div>
+                  <label for="name">Имя</label>
+                  <input id="name" type="text" name="name" placeholder="Иван Иванов" required>
+                </div>
+
+                <div>
+                  <label for="contact">Телефон или Email</label>
+                  <input id="contact" type="text" name="contact" placeholder="+7 (___) ___-__-__" required>
+                </div>
+
+                <div>
+                  <label for="message">Сообщение / Объект</label>
+                  <textarea id="message" name="message" rows="4" placeholder="Краткое описание задачи..." required></textarea>
+                </div>
+
+                <div class="form-actions">
+                  <button type="submit" class="btn btn--primary">
+                    Отправить заявку
+                  </button>
+
+                  <div class="form-note">
+                    Мы не передаём ваши данные третьим лицам.
+                  </div>
+                </div>
+              </form>
+
+              <div id="form-thanks">
+                <div style="font-size: 40px; margin-bottom: 10px;">✉️</div>
+                <h4>Заявка принята!</h4>
+                <p>Мы свяжемся с вами в ближайшее время для уточнения деталей.</p>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="card contact-form-card">
-          <div class="kicker">Обратная связь</div>
-          
-          <form id="contact-form" action="https://formspree.io/f/mlgodned" method="POST">
-            <div>
-              <label>Имя</label>
-              <input type="text" name="name" placeholder="Иван Иванов" required>
-            </div>
-            
-            <div>
-              <label>Телефон или Email</label>
-              <input type="text" name="contact" placeholder="+7 (___) ___-__-__" required>
-            </div>
-            
-            <div>
-              <label>Сообщение / Объект</label>
-              <textarea name="message" rows="4" placeholder="Краткое описание задачи..." required></textarea>
-            </div>
-            
-            <div class="form-actions">
-              <button type="submit" class="btn btn--primary">
-                Отправить заявку
-              </button>
-            
-              <div class="form-note">
-                Мы не передаём ваши данные третьим лицам.
-              </div>
-            </div>
-            
-          </form>
-            
-          <div id="form-thanks" style="display: none; text-align: center; padding: 30px 0;">
-            <div style="font-size: 40px; margin-bottom: 10px;">✉️</div>
-            <h4 style="color: #ff9d4d; margin-bottom: 10px;">Заявка принята!</h4>
-            <p style="font-size: 13px; opacity: 0.7;">Мы свяжемся с вами в ближайшее время для уточнения деталей.</p>
-          </div>
-        </div>
-      </div>
+          <div class="card keet-card">
+            <div class="kicker">Безопасная связь</div>
+            <h3>Keet — мессенджер без серверов</h3>
 
-      <div class="card keet-card">
-        <div class="kicker">Безопасная связь</div>
-        <h3>Keet — мессенджер без серверов</h3>
-      
-        <a href="https://keet.io/" target="_blank" rel="noopener">
-          <img src="images/keet-banner.png" alt="Keet Messenger" class="keet-card__image" />
-        </a>
-      
-        <p style="margin-bottom: 15px;">
-          Если вам нужна стабильная связь без ограничений, передача больших файлов и приватность —
-          используйте <strong>Keet</strong>.
-        </p>
-
-        <div class="keet-store-badges">
-          <a href="https://apps.apple.com/us/app/keet-by-holepunch/id6443880549" target="_blank" rel="noopener" style="display: flex;">
-            <img src="/images/download_appstore.svg" width="130" height="40" alt="Download on App Store" style="display: block; height: 40px; width: auto;">
-          </a>
-          <a href="https://play.google.com/store/apps/details?id=io.keet.app" target="_blank" rel="noopener" style="display: flex;">
-            <img src="/images/download_play.webp" width="138" height="40" alt="Get it on Google Play" style="display: block; height: 40px; width: auto;">
-          </a>
-          <a href="https://github.com/holepunchto/keet-mobile-releases/releases" target="_blank" rel="noopener" 
-             style="display: inline-flex; align-items: center; justify-content: center; height: 38px; padding: 0 15px; font-size: 11px; font-weight: 600; color: #ff9d4d; text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid rgba(255,157,77,0.5); border-radius: 6px; background: rgba(255,157,77,0.05); box-sizing: border-box; transition: all 0.2s ease;">
-            Скачать APK
-          </a>
-        </div> 
-        
-        <p style="margin-bottom: 15px;">
-          Это децентрализованный мессенджер: сообщения и файлы передаются напрямую между устройствами (P2P).
-        </p>
-        
-        <div class="keet-features">
-          <details>
-            <summary>Всегда бесплатный</summary>
-            <p>Keet — это open-source проект на базе Holepunch. Нет серверов и нет затрат на инфраструктуру. Поэтому здесь отсутствует реклама или платные лимиты.</p>
-          </details>
-          <details>
-            <summary>Без номера телефона и E-mail</summary>
-            <p>Регистрация происходит через создание уникального криптографического ключа. Не нужен ни телефон, ни email, это полностью защищает от спама и утечек личных данных.</p>
-          </details>
-          <details>
-            <summary>Не зависит от блокировок</summary>
-            <p>В Keet нет центральных серверов — устройства соединяются напрямую (P2P). Даже если глобальные сервисы станут недоступны, прямое соединение между пользователями остаётся активным.</p>
-          </details>
-          <details>
-            <summary>Файлы любого размера</summary>
-            <p>В отличие от Telegram и WhatsApp, здесь нет ограничений на объем. Можно отправить архив на 5 ГБ и более без сжатия напрямую с вашего устройства.</p>
-          </details>
-          <details>
-            <summary>Идеально для работы</summary>
-            <p>Чертежи, 4K-видео, массивные архивы, всё передаётся без искажений. Поддержка Keet стриминга позволяет смотреть видео сразу.</p>
-          </details>
-          <details>
-            <summary>Данные только у вас</summary>
-            <p>Ваши сообщения и файлы не хранятся в «облаке». Они существуют только на ваших устройствах. Нет посредников.</p>
-          </details>
-          <details>
-            <summary>Максимальная скорость</summary>
-            <p>Отсутствие промежуточных серверов убирает лишние задержки. Скорость передачи ограничена только возможностями вашего канала.</p>
-          </details>
-        </div>
-      
-        <div class="secure-contact__actions" style="margin-top: 20px;">
-          <div class="action-wrapper" style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
-            <a href="https://keet.io/download/" target="_blank" rel="noopener" class="btn btn--primary">
-              Скачать Keet для ПК
+            <a href="https://keet.io/" target="_blank" rel="noopener">
+              <img src="images/keet-banner.png" alt="Keet Messenger" class="keet-card__image" />
             </a>
-            <div class="blocking-notice" style="max-width: 300px; line-height: 1.2;">
-              <span style="color: #ff9d4d; font-size: 13px; font-weight: bold; display: block; margin-bottom: 2px;">⚠️ Сайт заблокирован в РФ</span>
-              <span style="color: rgba(255,255,255,0.7); font-size: 11px;">Для первичной загрузки дистрибутива потребуется средство обхода блокировок. Само приложение работает напрямую.</span>
+
+            <p>
+              Если вам нужна стабильная связь без ограничений, передача больших файлов и приватность —
+              используйте <strong>Keet</strong>.
+            </p>
+
+            <div class="keet-store-badges">
+              <a href="https://apps.apple.com/us/app/keet-by-holepunch/id6443880549" target="_blank" rel="noopener">
+                <img src="/images/download_appstore.svg" width="130" height="40" alt="Download on App Store">
+              </a>
+
+              <a href="https://play.google.com/store/apps/details?id=io.keet.app" target="_blank" rel="noopener">
+                <img src="/images/download_play.webp" width="138" height="40" alt="Get it on Google Play">
+              </a>
+
+              <a href="https://github.com/holepunchto/keet-mobile-releases/releases" target="_blank" rel="noopener" class="download-apk">
+                Скачать APK
+              </a>
+            </div>
+
+            <p>
+              Это децентрализованный мессенджер: сообщения и файлы передаются напрямую между устройствами (P2P).
+            </p>
+
+            <div class="keet-features">
+              <details>
+                <summary>Всегда бесплатный</summary>
+                <p>Keet — это open-source проект на базе Holepunch. Нет серверов и нет затрат на инфраструктуру. Поэтому здесь отсутствует реклама или платные лимиты.</p>
+              </details>
+
+              <details>
+                <summary>Без номера телефона и E-mail</summary>
+                <p>Регистрация происходит через создание уникального криптографического ключа. Не нужен ни телефон, ни email, это полностью защищает от спама и утечек личных данных.</p>
+              </details>
+
+              <details>
+                <summary>Не зависит от блокировок</summary>
+                <p>В Keet нет центральных серверов — устройства соединяются напрямую (P2P). Даже если глобальные сервисы станут недоступны, прямое соединение между пользователями остаётся активным.</p>
+              </details>
+
+              <details>
+                <summary>Файлы любого размера</summary>
+                <p>В отличие от Telegram и WhatsApp, здесь нет ограничений на объем. Можно отправить архив на 5 ГБ и более без сжатия напрямую с вашего устройства.</p>
+              </details>
+
+              <details>
+                <summary>Идеально для работы</summary>
+                <p>Чертежи, 4K-видео, массивные архивы, всё передаётся без искажений. Поддержка Keet стриминга позволяет смотреть видео сразу.</p>
+              </details>
+
+              <details>
+                <summary>Данные только у вас</summary>
+                <p>Ваши сообщения и файлы не хранятся в «облаке». Они существуют только на ваших устройствах. Нет посредников.</p>
+              </details>
+
+              <details>
+                <summary>Максимальная скорость</summary>
+                <p>Отсутствие промежуточных серверов убирает лишние задержки. Скорость передачи ограничена только возможностями вашего канала.</p>
+              </details>
+            </div>
+
+            <div class="secure-contact__actions">
+              <div class="action-wrapper">
+                <a href="https://keet.io/download/" target="_blank" rel="noopener" class="btn btn--primary">
+                  Скачать Keet для ПК
+                </a>
+
+                <div class="blocking-notice">
+                  <strong>⚠️ Сайт заблокирован в РФ</strong>
+                  <span>Для первичной загрузки дистрибутива потребуется средство обхода блокировок. Само приложение работает напрямую.</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © 2026 РОСТЕПЛОЦЕНТР. Монтаж внутренних инженерных сетей и поставка оборудования.
     </div>
-  </div>
-</section>
+  </footer>
 
-<footer class="footer">
-  <div class="container">
-    © 2026 РОСТЕПЛОЦЕНТР. Монтаж внутренних инженерных сетей и поставка оборудования.
-  </div>
-</footer>
+  <script>
+    const contactForm = document.getElementById('contact-form');
+    const formThanks = document.getElementById('form-thanks');
 
-<script>
-  const contactForm = document.getElementById('contact-form');
-  const formThanks = document.getElementById('form-thanks');
+    if (contactForm && formThanks) {
+      contactForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
 
-  if (contactForm && formThanks) {
-    contactForm.addEventListener('submit', async function (e) {
-      e.preventDefault();
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton ? submitButton.textContent : '';
 
-      const submitButton = contactForm.querySelector('button[type="submit"]');
-      const originalButtonText = submitButton ? submitButton.textContent : '';
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.textContent = 'Отправка...';
+        }
 
-      if (submitButton) {
-        submitButton.disabled = true;
-        submitButton.textContent = 'Отправка...';
-      }
+        const formData = new FormData(contactForm);
 
-      const formData = new FormData(contactForm);
+        try {
+          const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
 
-      try {
-        const response = await fetch(contactForm.action, {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'Accept': 'application/json'
+          if (response.ok) {
+            contactForm.style.display = 'none';
+            formThanks.style.display = 'block';
+            contactForm.reset();
+          } else {
+            alert('Не удалось отправить заявку. Попробуйте ещё раз.');
+            if (submitButton) {
+              submitButton.disabled = false;
+              submitButton.textContent = originalButtonText;
+            }
           }
-        });
-
-        if (response.ok) {
-          contactForm.style.display = 'none';
-          formThanks.style.display = 'block';
-          contactForm.reset();
-        } else {
-          alert('Не удалось отправить заявку. Попробуйте ещё раз.');
+        } catch (error) {
+          alert('Ошибка соединения. Попробуйте ещё раз.');
           if (submitButton) {
             submitButton.disabled = false;
             submitButton.textContent = originalButtonText;
           }
         }
-      } catch (error) {
-        alert('Ошибка соединения. Попробуйте ещё раз.');
-        if (submitButton) {
-          submitButton.disabled = false;
-          submitButton.textContent = originalButtonText;
-        }
-      }
-    });
-  }
-</script>
-    
+      });
+    }
+  </script>
 </body>
 </html>
