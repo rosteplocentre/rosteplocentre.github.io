@@ -564,7 +564,25 @@
         0 14px 40px rgba(255, 122, 24, 0.5),
         0 0 30px rgba(255, 160, 80, 0.35);
     }    
-  </style>  
+  </style>
+  
+  </style>
+    .form-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    
+    .form-actions .form-note {
+      font-size: 11px;
+      color: rgba(255,255,255,0.7);
+      max-width: 240px;
+      line-height: 1.2;
+    }
+</style>
+  
 </head>
 <body>
 
@@ -847,14 +865,14 @@
                         style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; outline: none; resize: none;"></textarea>
             </div>
             
-            <button type="submit" class="btn btn--primary">
-              Отправить заявку
-            </button>
+            <div class="form-actions">
+              <button type="submit" class="btn btn--primary">
+                Отправить заявку
+              </button>
             
-            <div class="form-note" style="max-width: 300px; line-height: 1.2; margin-top: 12px;">
-              <span style="color: rgba(255,255,255,0.7); font-size: 11px;">
+              <div class="form-note">
                 Мы не передаём ваши данные третьим лицам.
-              </span>
+              </div>
             </div>
             
           </form>
