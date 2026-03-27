@@ -17,9 +17,13 @@
       --accent-2: #f97316;
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Arial;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Arial, sans-serif;
       background: linear-gradient(180deg, #09101c, #0b1220);
       color: var(--text);
     }
@@ -33,6 +37,7 @@
     .logo {
       font-weight: 800;
       margin-bottom: 20px;
+      font-size: 16px;
     }
 
     .card {
@@ -46,44 +51,21 @@
       font-size: 12px;
       color: #ffca7a;
       text-transform: uppercase;
+      letter-spacing: 0.08em;
       margin-bottom: 8px;
     }
 
     h1 {
       margin: 0 0 10px;
       font-size: 26px;
+      line-height: 1.15;
     }
 
     p {
       color: var(--muted);
       font-size: 14px;
-      margin-bottom: 20px;
-    }
-
-    input, textarea, select {
-      width: 100%;
-      padding: 12px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.05);
-      color: #fff;
-      margin-bottom: 12px;
-    }
-
-    button {
-      width: 100%;
-      padding: 14px;
-      border-radius: 999px;
-      border: none;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      cursor: pointer;
-    }
-
-    .note {
-      font-size: 11px;
-      opacity: 0.6;
-      margin-top: 10px;
+      margin: 0 0 20px;
+      line-height: 1.5;
     }
 
     .back {
@@ -91,40 +73,132 @@
       margin-bottom: 20px;
       font-size: 13px;
       color: var(--muted);
+      text-decoration: none;
     }
+
+    .form-group {
+      width: 100%;
+      margin-bottom: 14px;
+    }
+
+    input,
+    textarea,
     select {
       width: 100%;
-      padding: 12px;
-      padding-right: 36px; /* место под стрелку */
-      border-radius: 10px;
+      display: block;
+      box-sizing: border-box;
+      padding: 14px 16px;
+      border-radius: 12px;
       border: 1px solid rgba(255,255,255,0.1);
-      background: #1a2233 url("data:image/svg+xml,%3Csvg fill='white' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") no-repeat right 10px center;
-      background-size: 16px;
+      background: rgba(255,255,255,0.05);
       color: #fff;
+      font-size: 14px;
       outline: none;
-    
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(255,255,255,0.45);
+    }
+
+    textarea {
+      min-height: 160px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(255, 157, 77, 0.6);
+      box-shadow: 0 0 0 2px rgba(255, 157, 77, 0.15);
+    }
+
+    select {
+      padding-right: 40px;
+      background:
+        #1a2233
+        url("data:image/svg+xml,%3Csvg fill='white' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E")
+        no-repeat right 12px center;
+      background-size: 16px;
       appearance: none;
       -webkit-appearance: none;
       -moz-appearance: none;
     }
-    
+
     select option {
       background: #1a2233;
       color: #fff;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px 18px;
+      border-radius: 999px;
+      border: none;
+      font-weight: 700;
+      font-size: 16px;
+      color: #111827;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    button:hover {
+      filter: brightness(1.04);
+    }
+
+    button:disabled {
+      opacity: 0.8;
+      cursor: default;
+    }
+
+    .note {
+      font-size: 11px;
+      opacity: 0.65;
+      margin-top: 12px;
+      line-height: 1.35;
+    }
+
+    #thanks {
+      display: none;
+      text-align: center;
+      padding: 20px 0 8px;
+    }
+
+    #thanks h3 {
+      margin: 0 0 10px;
+      color: #ffca7a;
+      font-size: 22px;
+    }
+
+    #thanks p {
+      margin: 0;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 28px 14px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
     }
   </style>
 </head>
 
 <body>
-
   <div class="container">
-
     <a href="/" class="back">← На главную</a>
 
     <div class="logo">РОСТЕПЛОЦЕНТР</div>
 
     <div class="card">
-
       <div class="kicker">Для монтажников</div>
       <h1>Заявка на материалы / оборудование</h1>
 
@@ -133,52 +207,62 @@
       </p>
 
       <form id="installer-form" action="https://formspree.io/f/xbdplpyg" method="POST">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Ваше имя" required>
+        </div>
 
-        <input type="text" name="name" placeholder="Ваше имя" required>
-        <input type="text" name="phone" placeholder="Телефон" required>
-        <select name="object" required>
-          <option value="">Выберите объект</option>
-          <option>Янтарный</option>
-          <option>Светлогорск</option>
-          <option>Пионерский (ЖК Рыбное)</option>
-          <option>Коммунистическая</option>
-          <option>Суздальская</option>
-          <option>Персональная</option>
-          <option>Иное</option>
-        </select>
+        <div class="form-group">
+          <input type="text" name="phone" placeholder="Телефон" required>
+        </div>
 
-        <textarea
-          name="message"
-          rows="8"
-          placeholder="1. Что требуется&#10;2. Количество&#10;3. Срок&#10;4. Комментарий"
-          style="width: 100%; padding: 14px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; outline: none; resize: vertical; line-height: 1.5;"
-          required
-        ></textarea>
+        <div class="form-group">
+          <select name="object" required>
+            <option value="">Выберите объект</option>
+            <option>Янтарный</option>
+            <option>Светлогорск</option>
+            <option>Пионерский (ЖК Рыбное)</option>
+            <option>Коммунистическая</option>
+            <option>Суздальская</option>
+            <option>Персональная</option>
+            <option>Иное</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <textarea
+            name="message"
+            rows="8"
+            placeholder="1. Что требуется&#10;2. Количество&#10;3. Срок&#10;4. Комментарий"
+            required
+          ></textarea>
+        </div>
 
         <input type="hidden" name="form_type" value="installer">
 
-        <button type="submit">Отправить заявку</button>
+        <button type="submit" id="submit-btn">Отправить заявку</button>
 
         <div class="note">
-          Данные используются только для обработки заявки
+          Данные используются только для обработки заявки.
         </div>
-
       </form>
 
-      <div id="thanks" style="display:none; text-align:center;">
+      <div id="thanks">
         <h3>Заявка отправлена</h3>
-        <p>Мы свяжемся с вами</p>
+        <p>Мы свяжемся с вами в ближайшее время.</p>
       </div>
-
     </div>
   </div>
 
   <script>
     const form = document.getElementById('installer-form');
     const thanks = document.getElementById('thanks');
+    const submitBtn = document.getElementById('submit-btn');
 
-    form.addEventListener('submit', async function(e) {
+    form.addEventListener('submit', async function (e) {
       e.preventDefault();
+
+      submitBtn.textContent = 'Отправка...';
+      submitBtn.disabled = true;
 
       const data = new FormData(form);
 
@@ -191,9 +275,13 @@
       if (response.ok) {
         form.style.display = 'none';
         thanks.style.display = 'block';
+        form.reset();
+      } else {
+        submitBtn.textContent = 'Отправить заявку';
+        submitBtn.disabled = false;
+        alert('Не удалось отправить заявку. Попробуйте ещё раз.');
       }
     });
   </script>
-
 </body>
 </html>
