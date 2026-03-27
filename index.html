@@ -547,6 +547,24 @@
       }
     }
   </style>
+  
+  <style>
+    .btn--cta {
+      background: linear-gradient(135deg, #ffb347, #ff7a18);
+      color: #1a1a1a;
+      box-shadow:
+        0 10px 30px rgba(255, 122, 24, 0.35),
+        0 0 20px rgba(255, 160, 80, 0.25);
+      transition: all 0.25s ease;
+    }
+    
+    .btn--cta:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 14px 40px rgba(255, 122, 24, 0.5),
+        0 0 30px rgba(255, 160, 80, 0.35);
+    }    
+  </style>  
 </head>
 <body>
 
@@ -584,7 +602,7 @@
           <div class="hero__actions">
             <a class="btn btn--primary" href="#contacts">Связаться с нами</a>
             <a class="btn btn--ghost" href="#services">Смотреть направления</a>
-            <a class="btn btn--ghost" href="installers.html">ЗАЯВКИ</a>
+            <a class="class="btn btn--primary btn--cta" href="installers.html">Заявки</a>
           </div>
 
           <ul class="hero__facts">
