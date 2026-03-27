@@ -92,6 +92,26 @@
       font-size: 13px;
       color: var(--muted);
     }
+    select {
+      width: 100%;
+      padding: 12px;
+      padding-right: 36px; /* место под стрелку */
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: #1a2233 url("data:image/svg+xml,%3Csvg fill='white' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") no-repeat right 10px center;
+      background-size: 16px;
+      color: #fff;
+      outline: none;
+    
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    }
+    
+    select option {
+      background: #1a2233;
+      color: #fff;
+    }
   </style>
 </head>
 
