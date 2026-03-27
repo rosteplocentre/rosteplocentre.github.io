@@ -14,7 +14,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="РОСТЕПЛОЦЕНТР — монтаж инженерных сетей">
   <meta property="og:description" content="Газовые котлы, радиаторы отопления, ППР трубы, канализация, двери, металл для дымоотводов.">
-  <meta property="og:image" content="apple-touch-icon.png">
+  <meta property="og:image" content="https://rosteplocentre.github.io/apple-touch-icon.png">
 
   <style>
     .contacts-grid {
@@ -41,7 +41,7 @@
       margin: 0 0 22px;
       padding-left: 18px;
       color: #dbe4f0;
-    }а
+    }
     
     .secure-contact__list li {
       margin-bottom: 8px;
@@ -58,9 +58,7 @@
         grid-template-columns: 1fr;
       }
     } 
-  </style>
-
-  <style>  
+ 
     .keet-features details {
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
@@ -100,9 +98,7 @@
       color: var(--muted);
       font-size: 0.95rem;
     }
-  </style>
-  
-  <style>
+
     :root {
       --bg: #0b1220;
       --bg-soft: #111a2b;
@@ -404,11 +400,6 @@
       grid-template-columns: repeat(4, 1fr);
     }
 
-    .contacts {
-      grid-template-columns: 1fr 1fr;
-      align-items: start;
-    }
-
     .card {
       background: var(--card);
       border: 1px solid var(--card-border);
@@ -546,9 +537,7 @@
         flex-direction: column;
       }
     }
-  </style>
-  
-  <style>
+
     .btn--cta {
       background: linear-gradient(135deg, #ffb347, #ff7a18);
       color: #1a1a1a;
@@ -564,9 +553,7 @@
         0 14px 40px rgba(255, 122, 24, 0.5),
         0 0 30px rgba(255, 160, 80, 0.35);
     }    
-  </style>
-  
-  <style>
+
     .form-actions {
       display: flex;
       align-items: center;
@@ -581,6 +568,154 @@
       max-width: 240px;
       line-height: 1.2;
     }
+
+  .contact-form-card,
+  .keet-card {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  
+  .contact-form-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  
+  .contact-form-card label {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 6px;
+  }
+  
+  .contact-form-card input,
+  .contact-form-card textarea {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    outline: none;
+  }
+  
+  .contact-form-card textarea {
+    min-height: 110px;
+    resize: vertical;
+    line-height: 1.5;
+  }
+  
+  .contact-form-card input:focus,
+  .contact-form-card textarea:focus {
+    border-color: rgba(255, 157, 77, 0.6);
+    box-shadow: 0 0 0 2px rgba(255, 157, 77, 0.15);
+  }
+  
+  .contact-form-card .btn {
+    min-height: 52px;
+  }
+  
+  .contact-form-card .btn--primary {
+    background: linear-gradient(135deg, #ffb347, #ff7a18);
+    color: #1a1a1a;
+    box-shadow:
+      0 10px 30px rgba(255, 122, 24, 0.35),
+      0 0 20px rgba(255, 160, 80, 0.2);
+  }
+  
+  .contact-form-card .btn--primary:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      0 14px 40px rgba(255, 122, 24, 0.45),
+      0 0 28px rgba(255, 160, 80, 0.28);
+  }
+  
+  .form-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  
+  .form-actions .btn {
+    flex: 0 0 auto;
+  }
+  
+  .form-actions .form-note {
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+    max-width: 240px;
+    line-height: 1.35;
+  }
+  
+  .keet-card h3,
+  .contact-form-card h3 {
+    margin: 0;
+  }
+  
+  .keet-card .kicker,
+  .contact-form-card .kicker {
+    margin-bottom: 0;
+  }
+  
+  .keet-store-badges {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 2px 0 2px;
+    flex-wrap: wrap;
+  }
+  
+  .keet-features {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .keet-features details {
+    margin-bottom: 0;
+  }
+  
+  .secure-contact__actions {
+    margin-top: 4px;
+  }
+  
+  @media (max-width: 760px) {
+    .form-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .form-actions .form-note {
+      max-width: none;
+    }
+  
+    .contact-form-card .btn {
+      width: 100%;
+    }
+  }
+
+  #form-thanks {
+    display: none;
+    text-align: center;
+    padding: 30px 0;
+  }
+  
+  #form-thanks h4 {
+    margin: 0 0 10px;
+  }
+  
+  #form-thanks p {
+    margin: 0;
+    font-size: 13px;
+    opacity: 0.7;
+  }    
+    
 </style>
   
 </head>
@@ -847,26 +982,23 @@
           <div class="kicker">Обратная связь</div>
           
           <form id="contact-form" action="https://formspree.io/f/mlgodned" method="POST">
-            <div style="margin-bottom: 12px;">
-              <label style="display: block; font-size: 11px; text-transform: uppercase; opacity: 0.6; margin-bottom: 5px;">Имя</label>
-              <input type="text" name="name" placeholder="Иван Иванов" required 
-                     style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; outline: none;">
+            <div>
+              <label>Имя</label>
+              <input type="text" name="name" placeholder="Иван Иванов" required>
             </div>
-        
-            <div style="margin-bottom: 12px;">
-              <label style="display: block; font-size: 11px; text-transform: uppercase; opacity: 0.6; margin-bottom: 5px;">Телефон или Email</label>
-              <input type="text" name="contact" placeholder="+7 (___) ___-__-__" required 
-                     style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; outline: none;">
+            
+            <div>
+              <label>Телефон или Email</label>
+              <input type="text" name="contact" placeholder="+7 (___) ___-__-__" required>
             </div>
-        
-            <div style="margin-bottom: 20px;">
-              <label style="display: block; font-size: 11px; text-transform: uppercase; opacity: 0.6; margin-bottom: 5px;">Сообщение / Объект</label>
-              <textarea name="message" rows="4" placeholder="Краткое описание задачи..." required 
-                        style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; outline: none; resize: none;"></textarea>
+            
+            <div>
+              <label>Сообщение / Объект</label>
+              <textarea name="message" rows="4" placeholder="Краткое описание задачи..." required></textarea>
             </div>
             
             <div class="form-actions">
-              <button type="submit" class="btn btn--primary">
+              <button type="submit" class="btn btn--primary btn--cta">
                 Отправить заявку
               </button>
             
@@ -898,7 +1030,7 @@
           используйте <strong>Keet</strong>.
         </p>
 
-        <div class="keet-store-badges" style="display: flex; align-items: center; gap: 12px; margin-top: 15px; margin-bottom: 20px; flex-wrap: wrap;">
+        <div class="keet-store-badges">
           <a href="https://apps.apple.com/us/app/keet-by-holepunch/id6443880549" target="_blank" rel="noopener" style="display: flex;">
             <img src="/images/download_appstore.svg" width="130" height="40" alt="Download on App Store" style="display: block; height: 40px; width: auto;">
           </a>
@@ -969,5 +1101,54 @@
   </div>
 </footer>
 
+<script>
+  const contactForm = document.getElementById('contact-form');
+  const formThanks = document.getElementById('form-thanks');
+
+  if (contactForm && formThanks) {
+    contactForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton ? submitButton.textContent : '';
+
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Отправка...';
+      }
+
+      const formData = new FormData(contactForm);
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          contactForm.style.display = 'none';
+          formThanks.style.display = 'block';
+          contactForm.reset();
+        } else {
+          alert('Не удалось отправить заявку. Попробуйте ещё раз.');
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+          }
+        }
+      } catch (error) {
+        alert('Ошибка соединения. Попробуйте ещё раз.');
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText;
+        }
+      }
+    });
+  }
+</script>
+    
 </body>
 </html>
