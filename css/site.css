@@ -876,3 +876,21 @@ h2 {
   background: linear-gradient(135deg, #f6a94a, #ff8a00);
   box-shadow: 0 4px 20px rgba(255,138,0,0.3);
 }
+
+/* Site refresh v1: clearer hero and accessible mobile navigation */
+.hero h1 { max-width: 15ch; font-size: clamp(2.4rem, 4.4vw, 4.4rem); line-height: 1.05; }
+.hero__actions .btn--ghost { box-shadow: none; }
+.menu-toggle { display: none; width: 44px; height: 44px; padding: 10px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface-2); cursor: pointer; flex-direction: column; justify-content: center; gap: 5px; }
+.menu-toggle span { display: block; height: 2px; width: 100%; background: var(--text); border-radius: 2px; }
+.keet-card--compact .keet-card__image { max-height: 210px; width: 100%; object-fit: cover; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+@media (max-width: 760px) {
+  .site-header__inner { position: relative; }
+  .menu-toggle { display: flex; flex-shrink: 0; }
+  .nav { display: none; position: absolute; top: calc(100% - 1px); left: 0; right: 0; padding: 16px; flex-direction: column; align-items: stretch; gap: 0; background: #0d1726; border: 1px solid var(--border); border-radius: 0 0 16px 16px; box-shadow: var(--shadow-lg); }
+  .nav.is-open { display: flex; }
+  .nav a { padding: 12px; }
+  .nav a::after { display: none; }
+  .hero h1 { max-width: none; font-size: clamp(2.1rem, 9vw, 3.2rem); }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
